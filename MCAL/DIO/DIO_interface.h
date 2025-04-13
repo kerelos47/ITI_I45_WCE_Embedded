@@ -21,6 +21,50 @@ typedef enum
 	PD
 }DioPort_Type;
 
+///////////////////////////////
+// Port A
+#define PA0 PIN0
+#define PA1 PIN1
+#define PA2 PIN2
+#define PA3 PIN3
+#define PA4 PIN4
+#define PA5 PIN5
+#define PA6 PIN6
+#define PA7 PIN7
+
+// Port B
+#define PB0 PIN8
+#define PB1 PIN9
+#define PB2 PIN10
+#define PB3 PIN11
+#define PB4 PIN12
+#define PB5 PIN13
+#define PB6 PIN14
+#define PB7 PIN15
+
+// Port C
+#define PC0 PIN16
+#define PC1 PIN17
+#define PC2 PIN18
+#define PC3 PIN19
+#define PC4 PIN20
+#define PC5 PIN21
+#define PC6 PIN22
+#define PC7 PIN23
+
+// Port D
+#define PD0 PIN24
+#define PD1 PIN25
+#define PD2 PIN26
+#define PD3 PIN27
+#define PD4 PIN28
+#define PD5 PIN29
+#define PD6 PIN30
+#define PD7 PIN31
+///////////////////////////////
+
+
+
 typedef enum
 {
 	PIN0=0,

@@ -16,6 +16,7 @@ void LCD_write_f_num(float64 num, uint8 decimal_point);
 void LCD_go_to(uint8 row, uint8 col);
 void LCD_write_string_pos(const char* pcStr,uint8 row, uint8 col);
 void LCD_init();
+void LCD_clear();
 
 
 

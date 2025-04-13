@@ -24,7 +24,7 @@ void  KEYPAD_init()
 
 uint8 KEYPAD_get_key()
 {
-	uint8 pressed_key = ' ';
+	uint8 pressed_key = 0;
 	for(int row_index=0; row_index<NUM_OF_ROWS ; row_index++)
 	{
 		DIO_writepin(ROW[row_index],LOW);
@@ -37,6 +37,7 @@ uint8 KEYPAD_get_key()
 		}
 		DIO_writepin(ROW[row_index],HIGH);
 	}
+
 	return pressed_key;
 }
 

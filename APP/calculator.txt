@@ -1,0 +1,99 @@
+#include "DIO_interface.h"
+#include "LCD_interface.h"
+#include "KEYPAD_interface.h"
+#include <util/delay.h>
+
+#define NUM_OF_OPERANDS 5
+sint32 calc(sint32 operand_1, sint16 operand_2, uint8 operator);
+
+int main() {
+	sint16 operands[NUM_OF_OPERANDS] = { 0 };
+	uint8 operand_num = 0;
+
+	uint8 operators[NUM_OF_OPERANDS - 1] = { 0 };
+
+	sint16 res = 0;
+
+	_delay_ms(100);
+	DIO_init();
+	LCD_init();
+	KEYPAD_init();
+	int keypad_flag = 0;
+	uint8 key;
+	while (1) {
+		key = KEYPAD_get_key();
+		if (keypad_flag == 1 && operand_num < NUM_OF_OPERANDS) {
+
+			if (key - '0' >= 0 && key - '0' <= 9) {
+				operands[operand_num] *= 10;
+				operands[operand_num] += key - '0';
+				LCD_write_char(key);
+				//LCD_write_num(operands[operand_num]);
+			} else if (key == '+' || key == '-' || key == 'x' || key == '/') {
+				operators[operand_num] = key;
+				operand_num++;
+				LCD_write_char(key);
+			} else if (key == '=') {
+
+				res = operands[0];
+				for (int i = 0; i < NUM_OF_OPERANDS - 1; i++) {
+
+					if (operators[i] != 0) {
+						res = calc(res, operands[i + 1], operators[i]);
+					}
+				}
+				LCD_write_char('=');
+				LCD_write_num(res);
+
+			} else if (key == 'c') {
+
+				res = 0;
+				for (int i = 0; i < NUM_OF_OPERANDS; i++) {
+					operands[NUM_OF_OPERANDS] = 0;
+					operators[NUM_OF_OPERANDS] = 0;
+					res = 0;
+					LCD_clear();
+				}
+			}
+
+			keypad_flag = 0; // not accept the key until release the it
+
+		}
+
+		if (key == 0) // No pressed key
+				{
+			_delay_ms(50);
+			keypad_flag = 1; // allow to press again
+		}
+
+	}
+	//LCD_write_num();
+
+	//LCD_go_to(1, 3);
+	//LCD_write_f_num(num,2);
+//	LCD_go_to(1, 3);
+	//LCD_write_f_num(num, 2);
+
+//	LCD_write_string("Hi");
+
+}
+
+sint32 calc(sint32 operand_1, sint16 operand_2, uint8 operator) {
+	switch (operator) {
+	case '+':
+		return operand_1 + operand_2;
+		break;
+	case '-':
+		return operand_1 - operand_2;
+		break;
+	case 'x':
+		return operand_1 * operand_2;
+		break;
+	case '/':
+		return operand_1 / operand_2;
+		break;
+	default:
+		return 0;
+	}
+}
+
