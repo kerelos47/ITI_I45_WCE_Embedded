@@ -7,18 +7,16 @@
 
 #include "DIO_interface.h"
 #include "EXI_interface.h"
+#include <util/delay.h>
 void toogle_();
 
 int main()
 {
 
-	//SET_BIT(SREG,7);
-	//DIO_init();
 	DIO_initpin(PD2,INPUT_PULLUP);
 	DIO_initpin(PD3,INPUT_PULLUP);
 	DIO_initpin(PB2,INPUT_PULLUP);
 	DIO_initpin(PB0,OUTPUT);
-	//}
 
 	EXI_Enable(EXI_INT0,EXI_ANY_LOGICAL_CHANGE);
 	EXI_Enable(EXI_INT1,EXI_FALLING_EDGE);
