@@ -24,4 +24,5 @@ HAL/KEYPAD \
 HAL/LCD \
 MCAL/DIO \
 MCAL/EXI \
+MCAL/Timer \
 

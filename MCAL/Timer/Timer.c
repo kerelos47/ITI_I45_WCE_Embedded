@@ -8,6 +8,8 @@
 #include <Timer/Timer_private.h>
 
 void Timer0_Init(void) {
+	sei();
+	TCNT0 = 0; // Clear Timer/Counter0
 
 }
 
@@ -60,8 +62,7 @@ void Timer0_SetDutyCycleFastPWM(uint8 DutyCycle, PWM_Signal_Type PWMType) {
 	OCR0 = OCR;
 }
 
-void Timer0_SetDutyCyclePhaseCorrection(uint8 DutyCycle,
-		PWM_Signal_Type PWMType) {
+void Timer0_SetDutyCyclePhaseCorrection(uint8 DutyCycle,PWM_Signal_Type PWMType) {
 	volatile uint8 OCR = 0;
 	switch (PWMType) {
 	case NonInververted:

@@ -90,21 +90,8 @@ void Timer0_SetCallBack(void (*TIMER0_App)(void));
  * are specified by the user. It returns an error status to indicate success or the nature of any failure in setting
  * the duty cycle.
  */
-void Timer0_enuSetDutyCycleFastPWM(uint8_t Copy_u8DutyCycle,
-		uint8_t Copy_u8PWMType);
+void Timer0_SetDutyCycleFastPWM(uint8 DutyCycle,PWM_Signal_Type PWMType);
 
-/**
- * @brief Set the duty cycle for Timer 0 in Phase Correct PWM mode.
- *
- * @param Copy_u8DutyCycle The desired duty cycle value.
- * @param Copy_u8PWMType The PWM type, which can be either INVERTED or NON_INVERTED.
- * @return TMR0_enuErrorStatus_t Error status of the duty cycle setting process.
- *
- * This function configures the duty cycle for TMR0 when operating in Phase Correct PWM mode. It allows
- * for finer control of the PWM waveform compared to Fast PWM mode. It returns an error status to indicate
- * the success or nature of any failure in setting the duty cycle.
- */
-void Timer0_enuSetDutyCyclePhaseCorrection(uint8_t Copy_u8DutyCycle,
-		uint8_t Copy_u8PWMType);
+void Timer0_SetDutyCyclePhaseCorrection(uint8 DutyCycle,PWM_Signal_Type PWMType);
 
 #endif /* MCAL_TIMER_TIMER_INTERFACE_H_ */
