@@ -8,6 +8,27 @@
 #ifndef MCAL_TIMER_TIMER_PRIVATE_H_
 #define MCAL_TIMER_TIMER_PRIVATE_H_
 
+
+#define cli()  __asm__ __volatile__ ("cli" ::: "memory")
+#define sei()  __asm__ __volatile__ ("sei" ::: "memory")
+
+
+
+#define TIMER2_COMP_vect	__vector_4
+#define TIMER2_OVF_vect		__vector_5
+#define TIMER1_CAPT_vect	__vector_6
+#define TIMER1_COMPA_vect	__vector_7
+#define TIMER1_COMPB_vect	__vector_8
+#define TIMER1_OVF_vect		__vector_9
+#define TIMER0_COMP_vect	__vector_10
+#define TIMER0_OVF_vect		__vector_11
+
+#define ISR(vector)\
+	void vector (void) __attribute__ ((signal)) ; \
+    void vector (void)
+
+
+
 /* TCCR0 */
 #define FOC0    7
 #define WGM00   6
