@@ -27,7 +27,15 @@
 	void vector (void) __attribute__ ((signal)) ; \
     void vector (void)
 
-
+/* TIMSK */
+#define OCIE2   7
+#define TOIE2   6
+#define TICIE1  5
+#define OCIE1A  4
+#define OCIE1B  3
+#define TOIE1   2
+#define OCIE0   1
+#define TOIE0   0
 
 /* TCCR0 */
 #define FOC0    7
