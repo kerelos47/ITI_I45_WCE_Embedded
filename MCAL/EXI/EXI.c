@@ -7,6 +7,8 @@
 #include <EXI/EXI_interface.h>
 #include <EXI/EXI_private.h>
 
+#include "GI_interface.h"
+
 static void (*ApfuncEXTINT[3])(void);
 
 void EXI_Enable(uint8 EXINum, uint8 EdgeIntSource) {
@@ -29,8 +31,7 @@ void EXI_Enable(uint8 EXINum, uint8 EdgeIntSource) {
 		break;
 	}
 
-	sei();
-	//SET_BIT(SREG,7);
+	General_Inrerupt_Enable();
 }
 
 void EXI_Disable(uint8 EXINum) {
