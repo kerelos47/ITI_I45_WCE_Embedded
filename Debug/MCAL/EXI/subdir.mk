@@ -4,15 +4,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../MCAL/EXI/EXI.c \
 ../MCAL/EXI/EXI_cfg.c 
 
 OBJS += \
-./MCAL/EXI/EXI.o \
 ./MCAL/EXI/EXI_cfg.o 
 
 C_DEPS += \
-./MCAL/EXI/EXI.d \
 ./MCAL/EXI/EXI_cfg.d 
 
 

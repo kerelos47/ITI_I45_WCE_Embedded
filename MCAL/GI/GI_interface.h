@@ -15,6 +15,8 @@
 #define cli()  __asm__ __volatile__ ("cli" ::: "memory")
 #define sei()  __asm__ __volatile__ ("sei" ::: "memory")
 
+void General_Inrerupt_Enable();
+void General_Inrerupt_Disable();
 
 
 #endif /* MCAL_GI_GI_INTERFACE_H_ */

@@ -7,8 +7,11 @@
 
 #include "EXTI_interface.h"
 #include "EXTI_register.h"
+#include "GI_interface.h"
 
 void EXTI_INIT(uint8 EXTINum, uint8 EXTI_SC) {
+
+	General_Inrerupt_Enable();
 
 	switch (EXTINum) {
 	case EXTI_0:
@@ -28,6 +31,8 @@ void EXTI_INIT(uint8 EXTINum, uint8 EXTI_SC) {
 }
 
 void EXTI_Enable(uint8 EXINum) {
+
+
 
 	switch (EXINum) {
 	case EXTI_0:
