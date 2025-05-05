@@ -7,6 +7,9 @@
 #include <Timer/Timer_interface.h>
 #include <Timer/Timer_private.h>
 
+
+static void (*Apfunc_TIMER0_OVF)(void);
+
 void Timer0_Init(void) {
 	sei();
 	TCNT0 = 0; // Clear Timer/Counter0
@@ -77,9 +80,19 @@ void Timer0_SetDutyCyclePhaseCorrection(uint8 DutyCycle,PWM_Signal_Type PWMType)
 	OCR0 = OCR;
 }
 
-ISR(TIMER0_COMP_vect) {
 
+void Timer0_SetCallBack(void (*pfun)(void)) {
+
+	Apfunc_TIMER0_OVF = pfun;
+
+}
+
+
+ISR(TIMER0_COMP_vect) {
+	Apfunc_TIMER0_OVF();
 }
 
 ISR(TIMER0_OVF_vect) {
+
 }
+

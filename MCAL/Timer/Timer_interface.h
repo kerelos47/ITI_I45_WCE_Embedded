@@ -94,4 +94,7 @@ void Timer0_SetDutyCycleFastPWM(uint8 DutyCycle,PWM_Signal_Type PWMType);
 
 void Timer0_SetDutyCyclePhaseCorrection(uint8 DutyCycle,PWM_Signal_Type PWMType);
 
+
+void Timer0_SetCallBack(void (*pfun)(void));
+
 #endif /* MCAL_TIMER_TIMER_INTERFACE_H_ */

@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../APP/external_int_app.c 
+../APP/schedular_test.c 
 
 OBJS += \
-./APP/external_int_app.o 
+./APP/schedular_test.o 
 
 C_DEPS += \
-./APP/external_int_app.d 
+./APP/schedular_test.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
